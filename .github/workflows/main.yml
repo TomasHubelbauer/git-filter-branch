@@ -33,7 +33,5 @@ jobs:
       run: git checkout -- .
     - name: Commit the staged changes to the workflow repository
       run: git commit -m "Replace generated docs content"
-    - name: Rebase if the branch has changed meanwhile or fail on automatically irresolvable conflicts
-      run: git pull --rebase
     - name: Push the commit to the workflow repository
       run: git push --force
