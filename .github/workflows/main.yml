@@ -19,7 +19,7 @@ jobs:
       run: git checkout master
     - name: Run the workflow script
       run: |
-        git filter-branch --force --index-filter "git rm --cached --ignore-unmatch -r docs" --prune-empty --tag-name-filter cat -- --all
+        FILTER_BRANCH_SQUELCH_WARNING=1 git filter-branch --force --index-filter "git rm --cached --ignore-unmatch -r docs" --prune-empty --tag-name-filter cat -- --all
         mkdir docs
         date > docs/index.html
     - name: Authenticate with GitHub using the out-of-the-box workflow PAT
