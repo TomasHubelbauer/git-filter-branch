@@ -17,11 +17,15 @@ jobs:
         git config --global user.name "Tomas Hubelbauer"
     - name: Check out the `master` branch - GitHub Actions checks out detached HEAD
       run: git checkout master
+    - name: Print directory size before filter-branch
+      run: du -sh .
     - name: Run the workflow script
       run: |
         FILTER_BRANCH_SQUELCH_WARNING=1 git filter-branch --force --index-filter "git rm --cached --ignore-unmatch -r docs" --prune-empty --tag-name-filter cat -- --all
         mkdir docs
         date > docs/index.html
+    - name: Print directory size after filter-branch
+      run: du -sh .
     - name: Authenticate with GitHub using the out-of-the-box workflow PAT
       run: |
         # (The commit using this PAT for authentication won't build GitHub Pages)
