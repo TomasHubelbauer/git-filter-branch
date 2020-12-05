@@ -15,8 +15,7 @@ don't have to, but the force pushes from the workflow to the repository make
 it super awkward to pull changes locally. You have to reset each time basically:
 
 ```
-git reset origin/master --hard
-git pull
+git pull --rebase
 ```
 
 Also, there is a short window of time in which your push to the remote will
