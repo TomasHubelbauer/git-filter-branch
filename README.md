@@ -12,7 +12,13 @@ uncontrollably.
 Having a process rewrite the repository history on the remote this way is all
 good and well it terms of having an automation clean up your repository so you
 don't have to, but the force pushes from the workflow to the repository make
-it super awkward to pull changes locally. You have to reset each time basically.
+it super awkward to pull changes locally. You have to reset each time basically:
+
+```
+git reset origin/master --hard
+git pull
+```
+
 Also, there is a short window of time in which your push to the remote will
 fail because it has just undergone the force push and you haven't checked out
 the new history so you have to fiddle around with transplating your change
