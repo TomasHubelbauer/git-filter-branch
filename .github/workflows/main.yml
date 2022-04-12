@@ -10,8 +10,8 @@ jobs:
     - uses: actions/checkout@v1
     - name: Configure Git for the push from the workflow to the repository
       run: |
-        git config --global user.email "tomas@hubelbauer.net"
-        git config --global user.name "Tomas Hubelbauer"
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "github-actions[bot]"
     - name: Check out the `master` branch - GitHub Actions checks out detached HEAD
       run: git checkout master
     - name: Print directory size before filter-branch
