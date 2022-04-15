@@ -18,7 +18,8 @@ jobs:
       run: du -sh .
     - name: Run the workflow script
       run: |
-        FILTER_BRANCH_SQUELCH_WARNING=1 git filter-branch --force --index-filter "git rm --cached --ignore-unmatch -r docs" --prune-empty --tag-name-filter cat -- --all
+        export FILTER_BRANCH_SQUELCH_WARNING=1
+        git filter-branch --force --index-filter "git rm --cached --ignore-unmatch -r docs" --prune-empty --tag-name-filter cat -- --all
         mkdir docs
         date > docs/index.html
     - name: Print directory size after filter-branch
